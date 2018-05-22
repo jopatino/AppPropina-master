@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppPropina.ViewModel"
+             x:Class="AppPropina.View.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary><!--Diccionario de recursos-->
+            <local:PropinaViewModel x:Key="proVM"></local:PropinaViewModel>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+    </ContentPage.Content>
+
+    <TableView BindingContext="{Binding Source={StaticResource propVM}}" 
+               Intent="Form"
+               HasUnevenRows="True">
+        <TableSection Title="Datos Generales">
+            <EntryCell x:Name="entTotal"
+                       Label="Total"
+                       Text="{Binding PropinaModel.Total,Mode==TwoWay}"
+                       
+                       >
+            </EntryCell>
+            <EntryCell x:Name="entPropina"
+                       Label="Propina"
+                       Placeholder="$0.0"
+                       Text="{Binding PropinaModel.PropinaTotal,Mode==TwoWay}"
+                       >
+            </EntryCell>
+            <EntryCell x:Name="entPersonas"
+                       Label="Personas"
+                       Placeholder="Ingrese número de personas"
+                       Text="{Binding PropinaModel.Personas,Mode==TwoWay}"
+                       >
+            </EntryCell>
+        </TableSection>
+        <TableSection Title="Calcular">
+            <ViewCell>
+                <ViewCell.View>
+                    <StackLayout>
+                        <Button x:Name="bntCalcular"
+                            Text="Calcular"
+                                TextColor="Aqua"
+                                Command="{Binding CalcularCommand}">
+                        </Button>
+                        <Image Source="icon.png"
+                               Scale=".8">                            
+                        </Image>
+                    </StackLayout>
+                </ViewCell.View>
+            </ViewCell>
+        </TableSection>
+        <TableSection Title="Resultados">
+            <TextCell x:Name="txtTotalPropina"
+                      Text="Propina total"
+                      Detail="{Binding PropinaViewModel.PropinaTotal}"
+                      >
+            </TextCell>
+            <TextCell x:Name="txtTotal"
+                      Text="Total"
+                      Detail="{Binding PropinaViewModel.Total}"
+                      >
+            </TextCell>
+            <TextCell x:Name="txtPropinaPersona"
+                      Text="Propina por persona"
+                      Detail="{Binding PropinaViewModel.propinaPorPersona}"
+                      >
+            </TextCell>
+            <TextCell x:Name="txtTotalPersona"
+                      Text="Total por persona"
+                      Detail="{Binding PropinaViewModel.TotalProPersona}"
+                      >
+            </TextCell>
+        </TableSection>
+    </TableView>
+
+</ContentPage>
