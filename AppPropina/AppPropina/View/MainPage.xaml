@@ -24,8 +24,8 @@
             </EntryCell>
             <EntryCell x:Name="entPropina"
                        Label="Propina"
-                       Placeholder="$0.0"
-                       Text="{Binding PropinaModel.porcentajePropina,Mode=TwoWay}"
+                       Placeholder="%"
+                       Text="{Binding PropinaModel.PorcentajePropina,Mode=TwoWay}"
                        >
             </EntryCell>
             <EntryCell x:Name="entPersonas"
@@ -54,22 +54,22 @@
         <TableSection Title="Resultados">
             <TextCell x:Name="txtTotalPropina"
                       Text="Propina total"
-                      Detail="{Binding PropinaViewModel.PropinaTotal}"
+                      Detail="{Binding PropinaModel.PropinaTotal}"
                       >
             </TextCell>
             <TextCell x:Name="txtTotal"
                       Text="Total"
-                      Detail="{Binding PropinaViewModel.Total}"
+                      Detail="{Binding PropinaModel.TotalCuenta}"
                       >
             </TextCell>
             <TextCell x:Name="txtPropinaPersona"
                       Text="Propina por persona"
-                      Detail="{Binding PropinaViewModel.PropinaPorPersona}"
+                      Detail="{Binding PropinaModel.PropinaPorPersona}"
                       >
             </TextCell>
             <TextCell x:Name="txtTotalPersona"
                       Text="Total por persona"
-                      Detail="{Binding PropinaViewModel.TotalPorPersona}"
+                      Detail="{Binding PropinaModel.TotalPorPersona}"
                       >
             </TextCell>
         </TableSection>

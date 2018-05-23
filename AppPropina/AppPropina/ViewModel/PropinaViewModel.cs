@@ -24,10 +24,11 @@ namespace AppPropina.ViewModel
         #endregion
         #region Metodos
         private void Calcular()
-        { 
-            PropinaModel.PropinaPorPersona = PropinaModel.PropinaTotal / PropinaModel.Personas;
-            PropinaModel.TotalPorPersona = PropinaModel.PropinaPorPersona + (PropinaModel.Total/ PropinaModel.Personas);
+        {
+            PropinaModel.PropinaTotal = (PropinaModel.Total * (PropinaModel.PorcentajePropina / 100));
             PropinaModel.TotalCuenta = PropinaModel.Total + PropinaModel.PropinaTotal;
+            PropinaModel.PropinaPorPersona = PropinaModel.PropinaTotal / PropinaModel.Personas;
+            PropinaModel.TotalPorPersona = PropinaModel.PropinaPorPersona + (PropinaModel.Total / PropinaModel.Personas);
         }
         #endregion
     }
