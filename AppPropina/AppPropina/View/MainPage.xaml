@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AppPropina.ViewModel"
+             xmlns:convert="clr-namespace:AppPropina.Converters"
              x:Class="AppPropina.View.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary><!--Diccionario de recursos-->
             <local:PropinaViewModel x:Key="propVM"></local:PropinaViewModel>
+            <convert:DecimalConverter x:Key="converter"></convert:DecimalConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -54,22 +56,22 @@
         <TableSection Title="Resultados">
             <TextCell x:Name="txtTotalPropina"
                       Text="Propina total"
-                      Detail="{Binding PropinaModel.PropinaTotal}"
+                      Detail="{Binding PropinaModel.PropinaTotal, Converter={StaticResource converter}}"
                       >
             </TextCell>
             <TextCell x:Name="txtTotal"
                       Text="Total"
-                      Detail="{Binding PropinaModel.TotalCuenta}"
+                      Detail="{Binding PropinaModel.TotalCuenta, Converter={StaticResource converter}}"
                       >
             </TextCell>
             <TextCell x:Name="txtPropinaPersona"
                       Text="Propina por persona"
-                      Detail="{Binding PropinaModel.PropinaPorPersona}"
+                      Detail="{Binding PropinaModel.PropinaPorPersona, Converter={StaticResource converter}}"
                       >
             </TextCell>
             <TextCell x:Name="txtTotalPersona"
                       Text="Total por persona"
-                      Detail="{Binding PropinaModel.TotalPorPersona}"
+                      Detail="{Binding PropinaModel.TotalPorPersona, Converter={StaticResource converter}}"
                       >
             </TextCell>
         </TableSection>
